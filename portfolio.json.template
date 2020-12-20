@@ -1,0 +1,14 @@
+{
+  "portfolio": [
+    {
+      "stock": "stock code #1",
+      "quantity": purchased quantity,
+      "initialPrice": 10.776
+    },
+    {
+      "stock": "WCLD",
+      "quantity": 1000,
+      "initialPrice": 29.133
+    }
+  ]
+}
