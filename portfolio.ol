@@ -48,8 +48,11 @@ service Portfolio {
               filename = "portfolio.json"
               format = "json"
             } )( myPortfolio );
+            // loop configured items
             for ( index = 0, index < #myPortfolio.("portfolio"), index++ ) {
-              getQuote@YahooFinance( { .q = myPortfolio.portfolio[index].stock } )( myQuote );               
+              // for each stock call Yahoo Finance API to get quote
+              getQuote@YahooFinance( { .q = myPortfolio.portfolio[index].stock } )( myQuote );         
+              // and set output      
               response.portfolio.stocks[index].stock =  myQuote.quoteResponse.result[0].shortName;  
               currValue = myPortfolio.portfolio[index].quantity * myQuote.quoteResponse.result[0].regularMarketPrice;
               initialValue = myPortfolio.portfolio[index].quantity * myPortfolio.portfolio[index].initialPrice;
